@@ -1,0 +1,47 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "bgp_peers_schema.json",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Welcome6Element"
+    },
+    "definitions": {
+        "Welcome6Element": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "asn": {
+                    "$ref": "definitions.json#/asn"
+                },
+                "peers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Peer"
+                    }
+                }
+            },
+            "required": [
+                "asn",
+                "peers"
+            ],
+            "title": "Welcome6Element"
+        },
+        "Peer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "neighbor": {
+                    "$ref": "definitions.json#/ipv4_or_ipv6_address"
+                },
+                "peer_asn": {
+                    "$ref": "definitions.json#/asn"
+                }
+            },
+            "required": [
+                "neighbor",
+                "peer_asn"
+            ],
+            "title": "Peer"
+        }
+    }
+}
