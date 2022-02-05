@@ -31,7 +31,10 @@
             "additionalProperties": false,
             "properties": {
                 "neighbor": {
-                    "$ref": "definitions.json#/ipv4_or_ipv6_address"
+                    "anyOf": [
+                        {"$ref": "definitions.json#/ipv4_address"},
+                        {"$ref": "definitions.json#/ipv6_address"}
+                    ]
                 },
                 "peer_asn": {
                     "$ref": "definitions.json#/asn"
